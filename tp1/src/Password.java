@@ -64,7 +64,37 @@ public class Password {
      * @return true if the password is strong, false otherwise
      */
     public static boolean isStrongPassword(String password) {
+        if (password.length() > 11) {
+            boolean hasUpperCase = false;
+            boolean hasLowerCase = false;
+            boolean hasDigit = false;
+            boolean hasWhitespace = false;
+    
+            // Iterate through each character of the password
+            for (char c : password.toCharArray()) {
+                if (Character.isUpperCase(c)) {
+                    hasUpperCase = true;
+                }
+                if (Character.isLowerCase(c)) {
+                    hasLowerCase = true;
+                }
+                if (Character.isDigit(c)) {
+                    hasDigit = true;
+                }
+                if (Character.isWhitespace(c)) {
+                    hasWhitespace = true;
+                }
+            }
+    
+            // Ensure all conditions are met
+            if (hasUpperCase && hasLowerCase && hasDigit && !hasWhitespace) {
+                return true;
+            }
+        }
+        return false;
+    }
 
+        }
 
         return false;
     }
@@ -98,7 +128,6 @@ public class Password {
      */
     public static String generatePassword(int nbCar) {
 
-        // Code here
 
         return null;
     }
